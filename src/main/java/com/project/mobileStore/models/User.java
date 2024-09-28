@@ -29,11 +29,20 @@ public class User {
 
     }
 
-    public User(String username, String lastname, String email, Collection<Role> roles) {
+    public User(String username, String lastname, String email,String password, Collection<Role> roles) {
         this.username = username;
         this.lastname = lastname;
         this.email = email;
+        this.password = password;
         this.roles = roles;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
