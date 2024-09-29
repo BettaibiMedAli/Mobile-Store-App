@@ -14,8 +14,13 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfiguration {
-    @Autowired
     private UserService userService;
+
+    public SecurityConfiguration(UserService userService) {
+        super();
+        this.userService = userService;
+    }
+
     @Bean
     public BCryptPasswordEncoder passwordEncoder()
     {
