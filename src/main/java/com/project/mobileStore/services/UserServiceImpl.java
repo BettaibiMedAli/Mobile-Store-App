@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -24,10 +25,13 @@ public class UserServiceImpl implements UserService {
         this.userRepo = userRepo;
     }
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     @Override
     public User save(UserRegistrationDto registrationDto) {
         User user = new User(registrationDto.getFirstName(), registrationDto.getLastName(),
-                registrationDto.getEmail(), registrationDto.getPassword(), Arrays.asList(new Role("ROLE-USER")));
+                registrationDto.getEmail(), passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE-USER")));
         return userRepo.save(user);
     }
 
@@ -43,4 +47,6 @@ public class UserServiceImpl implements UserService {
     private Collection<? extends GrantedAuthority> mapRolesAuthorities(Collection<Role> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
+
+
 }
