@@ -19,14 +19,14 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
+    private final BCryptPasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepo userRepo) {
+    public UserServiceImpl(UserRepo userRepo, BCryptPasswordEncoder passwordEncoder) {
         super();
         this.userRepo = userRepo;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public User save(UserRegistrationDto registrationDto) {
