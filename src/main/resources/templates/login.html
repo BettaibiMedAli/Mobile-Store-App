@@ -9,18 +9,60 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            color: white; /* Set text color to white */
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images.png') no-repeat center center fixed;
+            background-size: cover;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding-top: 70px; /* Offset for the navbar */
+        }
+
         .footer {
             position: fixed;
             bottom: 0;
             width: 100%;
             text-align: center;
             padding: 10px;
-            background-color: #343a40;
-            color: #fff;
+            background-color: #cdeeea; /* Change footer color */
+            color: black; /* Change footer text color to black */
+            z-index: 2;
+        }
+
+        .navbar {
+            background-color: #cdeeea; /* Change navbar color */
+            border-color: #cdeeea;
+            z-index: 2;
+        }
+
+        .navbar .navbar-brand,
+        .navbar .navbar-nav > li > a {
+            color: black !important; /* Change navbar text color to black */
+        }
+
+        .alert {
+            color: black; /* Alerts text should be black to contrast with the alert background */
         }
     </style>
 </head>
 <body>
+
+<div class="background"></div>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -28,18 +70,17 @@
             <button type="button" class="navbar-toggle collapsed"
                     data-toggle="collapse" data-target="#navbar" aria-expanded="false"
                     aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span> <span
-                    class="icon-bar"></span> <span class="icon-bar"></span> <span
-                    class="icon-bar"></span>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#" th:href="@{/}">Mobile Store</a>
         </div>
     </div>
 </nav>
 
-<br>
-<br>
-<div class="container">
+<div class="container content">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
 
@@ -47,8 +88,7 @@
             <form th:action="@{/login}" method="post">
 
                 <div th:if="${param.error}">
-                    <div class="alert alert-danger">Invalid username or
-                        password.</div>
+                    <div class="alert alert-danger">Invalid username or password.</div>
                 </div>
 
                 <div th:if="${param.logout}">
