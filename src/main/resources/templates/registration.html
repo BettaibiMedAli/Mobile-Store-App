@@ -49,6 +49,10 @@
             color: #fff;
             border-radius: 5px;
         }
+        .already-registered {
+            text-align: center;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -112,12 +116,16 @@
                     <button type="submit" class="btn btn-custom">Register</button>
                 </div>
             </form>
+
+            <div class="already-registered">
+                <p>Already registered? <a th:href="@{/login}">Log in</a></p>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="footer">
-    <p>© 2024 Mobile Store. Created by Bettaibi Dali. All rights reserved.</p>
+    <p>~~    Created By Dali     ~~</p>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
