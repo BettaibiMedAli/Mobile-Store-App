@@ -12,7 +12,7 @@ public class Mobile {
     private int ram;
     private int stockage;
     private double price;
-
+    public Mobile(){}
     public Mobile(String name, int ram, int stockage, double price) {
         this.name = name;
         this.ram = ram;
