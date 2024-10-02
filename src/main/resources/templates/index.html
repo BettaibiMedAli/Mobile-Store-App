@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Registration and Login App</title>
+    <title>Dali's Mobile Store</title>
 
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -12,34 +12,71 @@
 
 </head>
 <body>
-<!-- create navigation bar ( header) -->
+<!-- Navigation Bar -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span> <span
-                    class="icon-bar"></span> <span class="icon-bar"></span> <span
-                    class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Registration and
-                Login Module</a>
+            <a class="navbar-brand" href="#" th:href="@{/}">Dali's Mobile Store</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <form th:action="@{/logout}" method="post">
+        <div class="collapse navbar-collapse">
+            <form class="navbar-form navbar-left" th:action="@{/mobiles/search}" method="get">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="query" placeholder="Search for mobiles...">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+            <form th:action="@{/logout}" method="post" class="navbar-form navbar-right">
                 <button type="submit" class="btn btn-link">Logout</button>
             </form>
         </div>
     </div>
 </nav>
 
-<br>
-<br>
+<br><br><br>
 
 <div class="container">
     <h1>Welcome to DALI's Mobile Store!</h1>
-    Welcome <span sec:authentication="principal.username"> User</span>
+    Welcome <span sec:authentication="principal.username">User</span>
+
+    <h2>Mobile List</h2>
+    <a class="btn btn-primary" th:href="@{/mobiles/new}">Add New Mobile</a>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mobile : ${mobiles}">
+            <td th:text="${mobile.name}">Mobile Name</td>
+            <td th:text="${mobile.brand}">Mobile Brand</td>
+            <td th:text="${mobile.price}">Mobile Price</td>
+            <td>
+                <a th:href="@{/mobiles/edit/{id}(id=${mobile.id})}" class="btn btn-warning">Edit</a>
+                <a th:href="@{/mobiles/delete/{id}(id=${mobile.id})}" class="btn btn-danger"
+                   onclick="return confirm('Are you sure you want to delete this mobile?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
+
+<footer class="container-fluid text-center" style="margin-top: 20px; position: fixed; bottom: 0; width: 100%;">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <ul class="nav navbar-nav" style="margin: auto;">
+                <li><a th:href="@{/contact}">Contact Us</a></li>
+                <li><a th:href="@{/about}">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
