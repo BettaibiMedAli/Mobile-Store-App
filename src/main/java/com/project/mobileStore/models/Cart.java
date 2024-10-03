@@ -47,4 +47,11 @@ public class Cart {
     public void setId(Long id) {
         this.id = id;
     }
+    public List<Mobile> getItems() {
+        return mobiles;
+    }
+
+    public void setItems(List<Mobile> items) {
+        this.mobiles = items;
+    }
 }
