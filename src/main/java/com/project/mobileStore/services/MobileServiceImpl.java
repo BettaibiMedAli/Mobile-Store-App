@@ -15,7 +15,8 @@ public class MobileServiceImpl implements MobileService{
 
     @Override
     public List<Mobile> getAllMobiles() {
-        return mobileRepo.findAll();
+        List<Mobile> mobiles = mobileRepo.findAll();
+        return mobiles;
     }
 
     @Override

@@ -44,15 +44,17 @@
         <thead>
         <tr>
             <th>Name</th>
-            <th>Brand</th>
-            <th>Price</th>
+            <th>RAM (GB)</th>
+            <th>Storage (GB)</th>
+            <th>Price ($)</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="mobile : ${mobiles}">
             <td th:text="${mobile.name}">Mobile Name</td>
-            <td th:text="${mobile.brand}">Mobile Brand</td>
+            <td th:text="${mobile.ram}">Mobile RAM</td>
+            <td th:text="${mobile.stockage}">Mobile Storage</td>
             <td th:text="${mobile.price}">Mobile Price</td>
             <td>
                 <a th:href="@{/mobiles/edit/{id}(id=${mobile.id})}" class="btn btn-warning">Edit</a>

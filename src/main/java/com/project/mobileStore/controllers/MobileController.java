@@ -14,9 +14,12 @@ public class MobileController {
     @Autowired
     private MobileService mobileService;
 
-    @GetMapping
-    public String listMobiles()
+    @GetMapping("/Homepage")
+    public String listMobiles(Model model)
     {
+        List<Mobile> mobiles = mobileService.getAllMobiles();
+        model.addAttribute("mobiles", mobiles);
+        System.out.println("Mobiles in model: " + mobiles);
         return "index";
     }
 
@@ -37,7 +40,7 @@ public class MobileController {
     public String addMobile(Mobile mobile)
     {
         mobileService.addMobile(mobile);
-        return "redirect:/mobiles";
+        return "redirect:/Homepage";
     }
     @GetMapping("/edit/{id}")
     public String showUpdateForm(@PathVariable Long id, Model model)
