@@ -11,7 +11,6 @@
           crossorigin="anonymous">
 </head>
 <body>
-<!-- Navigation Bar -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -29,7 +28,7 @@
 
 <div class="container">
     <h1>Add New Mobile</h1>
-    <form th:action="@{/mobiles}" method="post" th:object="${mobile}">
+    <form th:action="@{/mobiles/add}" method="post" th:object="${mobile}">
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" class="form-control" id="name" th:field="*{name}" required>
@@ -47,7 +46,7 @@
             <input type="number" class="form-control" id="price" th:field="*{price}" required>
         </div>
         <button type="submit" class="btn btn-primary">Add Mobile</button>
-        <a class="btn btn-secondary" th:href="@{/mobiles}">Cancel</a>
+        <a class="btn btn-secondary" th:href="@{/Homepage}">Cancel</a>
     </form>
 </div>
 

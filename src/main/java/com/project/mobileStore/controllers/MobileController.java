@@ -14,14 +14,14 @@ public class MobileController {
     @Autowired
     private MobileService mobileService;
 
-    @GetMapping("/Homepage")
+    /*@GetMapping("/Homepage")
     public String listMobiles(Model model)
     {
         List<Mobile> mobiles = mobileService.getAllMobiles();
         model.addAttribute("mobiles", mobiles);
         System.out.println("Mobiles in model: " + mobiles);
         return "index";
-    }
+    }*/
 
     @GetMapping("/search")
     public String searchMobiles(@RequestParam("query") String query, Model model)
@@ -36,7 +36,7 @@ public class MobileController {
         model.addAttribute("mobile", new Mobile());
         return "addMobile";
     }
-    @PostMapping
+    @PostMapping("/add")
     public String addMobile(Mobile mobile)
     {
         mobileService.addMobile(mobile);
@@ -53,12 +53,12 @@ public class MobileController {
     public String updateMobile(@PathVariable Long id, @ModelAttribute Mobile mobile)
     {
         mobileService.updateMobile(id, mobile);
-        return "redirect:/mobiles";
+        return "redirect:/Homepage";
     }
     @GetMapping("/delete/{id}")
     public String deleteMobile(@PathVariable Long id)
     {
         mobileService.deleteMobile(id);
-        return "redirect:/mobiles";
+        return "redirect:/Homepage";
     }
 }
