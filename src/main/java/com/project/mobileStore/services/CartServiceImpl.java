@@ -3,12 +3,14 @@ package com.project.mobileStore.services;
 import com.project.mobileStore.models.Cart;
 import com.project.mobileStore.models.Mobile;
 import com.project.mobileStore.repositories.CartRepo;
-import org.springframework.beans.factory.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
-public class CartServiceImpl implements CartService{
-    @Autowired
+public class CartServiceImpl implements CartService {
+
     private CartRepo cartRepo;
     private Cart currentCart;
 
@@ -35,16 +37,12 @@ public class CartServiceImpl implements CartService{
 
     @Override
     public double calculateTotal() {
-        return currentCart.getItems().stream()
-                .mapToDouble(Mobile::getPrice)
-                .sum();
+        return currentCart.getItems().stream().mapToDouble(Mobile::getPrice).sum();
     }
 
     @Override
     public void confirmPurchase() {
         double total = calculateTotal();
-        // Logic to add total to incomes goes here
-        // Reset the cart after confirming purchase
-        currentCart.getItems().clear();
+        currentCart.clear();
     }
 }

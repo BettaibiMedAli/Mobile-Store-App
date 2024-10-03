@@ -54,4 +54,7 @@ public class Cart {
     public void setItems(List<Mobile> items) {
         this.mobiles = items;
     }
+    public void clear() {
+        mobiles.clear();
+    }
 }

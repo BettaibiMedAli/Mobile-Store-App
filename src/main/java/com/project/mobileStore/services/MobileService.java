@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MobileService {
+
     List<Mobile> getAllMobiles();
     List<Mobile> searchMobiles(String phrase);
     Optional<Mobile> getMobileById(Long id);
