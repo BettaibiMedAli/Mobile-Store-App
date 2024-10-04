@@ -37,6 +37,6 @@ public class MainController {
     @GetMapping("/contact")
     public String showContactUsPage()
     {
-        return "Contact";
+        return "contact";
     }
 }
