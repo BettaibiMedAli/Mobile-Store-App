@@ -27,4 +27,16 @@ public class MainController {
         System.out.println("Mobiles in model: " + mobiles);
         return "index";
     }
+
+    @GetMapping("/aboutUs")
+    public String showAboutUsPage()
+    {
+        return "about";
+    }
+
+    @GetMapping("/contactUs")
+    public String showContactUsPage()
+    {
+        return "Contact";
+    }
 }
