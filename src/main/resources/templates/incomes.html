@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Total Incomes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Total Incomes</h2>
+    <h3>Total: $<span th:text="${totalIncome}">0.00</span></h3>
+    <a th:href="@{/Homepage}" class="btn btn-primary">Back to Home</a>
+</div>
+</body>
+</html>
