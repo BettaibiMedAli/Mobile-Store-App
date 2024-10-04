@@ -16,9 +16,9 @@ public class Income {
     public Income()
     {}
 
-    public Income(double amount, LocalDate date) {
+    public Income(double amount) {
         this.amount = amount;
-        this.date = date;
+        this.date = LocalDate.now();
     }
 
     public Long getId() {

@@ -1,6 +1,7 @@
 package com.project.mobileStore.services;
 
 import com.project.mobileStore.models.Cart;
+import com.project.mobileStore.models.Income;
 import com.project.mobileStore.models.Mobile;
 import com.project.mobileStore.repositories.CartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ public class CartServiceImpl implements CartService {
 
     private CartRepo cartRepo;
     private Cart currentCart;
+    @Autowired
+    private IncomeService incomeService;
 
     @Autowired
     public CartServiceImpl(CartRepo cartRepo) {
@@ -45,6 +48,8 @@ public class CartServiceImpl implements CartService {
         double total = calculateTotal();
         if(total > 0)
         {
+            Income income = new Income(total);
+            incomeService.addIncome(income);
             currentCart.clear();
         }
     }
