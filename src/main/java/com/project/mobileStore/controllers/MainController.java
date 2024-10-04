@@ -28,13 +28,13 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/aboutUs")
+    @GetMapping("/about")
     public String showAboutUsPage()
     {
         return "about";
     }
 
-    @GetMapping("/contactUs")
+    @GetMapping("/contact")
     public String showContactUsPage()
     {
         return "Contact";
