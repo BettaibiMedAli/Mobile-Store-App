@@ -9,4 +9,5 @@ public interface CartService {
     void removeMobileFromCart(Long mobileId);
     double calculateTotal();
     void confirmPurchase();
+
 }

@@ -43,6 +43,10 @@ public class CartServiceImpl implements CartService {
     @Override
     public void confirmPurchase() {
         double total = calculateTotal();
-        currentCart.clear();
+        if(total > 0)
+        {
+            currentCart.clear();
+        }
     }
+
 }
