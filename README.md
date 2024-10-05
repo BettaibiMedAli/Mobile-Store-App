@@ -52,5 +52,4 @@ Welcome to Dali's Mobile Store! This is a web application designed to showcase a
 
 ## Contact
 
-For any questions, feel free to reach the links in my profile description.
-
+For any questions, feel free to reach out using the links in my profile description.
