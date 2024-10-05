@@ -11,7 +11,7 @@
     <style>
         html, body {
             height: 100%;
-            margin: 0; /* Remove default margin */
+            margin: 0;
         }
 
         .wrapper {
@@ -27,10 +27,10 @@
         footer {
             background-color: #f8f8f8;
             padding: 10px 0;
-            width: 100%; /* Ensures the footer is full width */
-            position: relative; /* Ensures it stays at the bottom without floating */
-            left: 0; /* Aligns footer to the left */
-            bottom: 0; /* Aligns footer to the bottom */
+            width: 100%;
+            position: relative;
+            left: 0;
+            bottom: 0;
         }
     </style>
 </head>
@@ -42,7 +42,6 @@
                 <a href="/Homepage" class="navbar-brand">Dali's Mobile Store</a>
             </div>
             <div class="collapse navbar-collapse">
-                <!-- Search bar -->
                 <form class="navbar-form navbar-left" th:action="@{/mobiles/search}" method="get">
                     <div class="form-group">
                         <input type="text" class="form-control" name="query" placeholder="Search for mobiles...">
@@ -53,7 +52,6 @@
                 </form>
                 <ul class="nav navbar-nav">
                     <li><a th:href="@{/incomes}">Incomes</a></li>
-                    <!-- New Add Mobile link in navbar -->
                     <li><a th:href="@{/mobiles/new}" >Add New Mobile</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -111,8 +109,8 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <ul class="nav navbar-nav" style="margin: auto;">
-                    <li><a th:href="@{/contact}">Contact Us</a></li>
                     <li><a th:href="@{/about}">About Us</a></li>
+                    <li><a th:href="@{/contact}">Contact Us</a></li>
                 </ul>
             </div>
         </nav>
