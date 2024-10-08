@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            padding-top: 70px;
+            font-family: Arial, sans-serif;
+        }
+        h3 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .social-icons {
+            font-size: 5rem;
+        }
+        .social-icons a {
+            margin: 0 15px;
+            color: #333;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="/Homepage" class="navbar-brand">
+                <img src="/icon.png" alt="Home" style="width: 20px; height: 20px; margin-right: 10px; display: inline-block;">
+                Dali's Mobile Store
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a th:href="@{/logout}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" th:action="@{/logout}" method="post" style="display: none;"></form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h3>Connect with us:</h3>
+    <div class="social-icons">
+        <a href="https://github.com/BettaibiMedAli" target="_blank">
+            <i class="fa fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/bettaibi-mohamed-ali-a59aa2256" target="_blank">
+            <i class="fa fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/bettaibi_medali/">
+            <i class="fa fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/mohamedali.bettaibi.16" target="_blank">
+            <i class="fa fa-facebook"></i>
+        </a>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
