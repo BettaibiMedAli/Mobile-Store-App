@@ -1,6 +1,6 @@
-# Dali's Mobile Store
+# PhoneSpot
 
-Welcome to Dali's Mobile Store! This is a web application designed to showcase a variety of mobile devices, allowing users to browse, add to cart, and purchase items seamlessly. The app utilizes Spring Boot for the backend and Thymeleaf for the frontend.
+Welcome to PhoneSpot! This is a web application designed to showcase a variety of mobile devices, allowing users to browse, add to cart, and purchase items seamlessly. The app utilizes Spring Boot for the backend and Thymeleaf for the frontend.
 
 ## Features
 
